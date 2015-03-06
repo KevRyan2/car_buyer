@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  category: MyString
+  make: MyString
+  model: MyString
+  color: MyString
+  year: 1
+  owner: MyString
+  price: 1
+  address: MyString
+  zip: 1
+  state: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  user_id: 1
+  category: MyString
+  make: MyString
+  model: MyString
+  color: MyString
+  year: 1
+  owner: MyString
+  price: 1
+  address: MyString
+  zip: 1
+  state: MyString
+  latitude: 1.5
+  longitude: 1.5
