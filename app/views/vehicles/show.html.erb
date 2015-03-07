@@ -64,5 +64,13 @@
   <%= @vehicle.longitude %>
 </p>
 
+<h3>Nearby Vehicles</h3>
+<ul>
+<% for vehicle in @vehicle.nearbys(10) %>
+  <li><%= link_to vehicle.address, vehicle %> (<%= vehicle.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>

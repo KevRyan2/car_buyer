@@ -6,9 +6,14 @@ class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
-      marker.lat vehicle.latitude
-      marker.lng vehicle.longitude
+        marker.lat vehicle.latitude
+        marker.lng vehicle.longitude
     end
+     if params[:search].present?
+        @vehicles = Vehicle.near(params[:search], 40, :order => :address)
+     else
+        @vehicles = Vehicle.all
+     end   
   end
 
   # GET /vehicles/1
@@ -25,6 +30,15 @@ class VehiclesController < ApplicationController
   def edit
   end
 
+  #GET "vehicles/search"
+  def search
+    if params.empty?
+      gflash notice: "Must search with a term figure it out"
+      redirect_to "vehicles/index"
+    else
+      search_map(@vehicles)
+    end
+  end
   # POST /vehicles
   # POST /vehicles.json
   def create
@@ -70,6 +84,24 @@ class VehiclesController < ApplicationController
   end  
 
   private
+
+    def search_map(vehicles)
+        @vehicles = vehicles
+        @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
+        marker.lat vehicle.latitude
+        marker.lng vehicle.longitude
+        end
+    end
+
+    def correct_user(vehicle)
+      @vehicle = vehicle
+      if current_user_id ==@vehicle.user_id
+        return true
+      else
+        return false
+      end
+    end     
+
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])
