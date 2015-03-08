@@ -15,8 +15,9 @@ class VehiclesController < ApplicationController
      if params[:search].present?
         @vehicles = Vehicle.near(params[:search], 40, :order => :address)
         @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
-        marker.lat vehicle.latitude
-        marker.lng vehicle.longitude
+          marker.lat vehicle.latitude
+          marker.lng vehicle.longitude
+        end
      else
         @vehicles = Vehicle.all
      end   
