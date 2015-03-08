@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.all
+    @miles = params[:miles]
     # @vehicles = PgSearch.multisearch( params[:q] ).paginate( :page => params[:page] )
 
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
@@ -13,7 +14,7 @@ class VehiclesController < ApplicationController
         marker.lng vehicle.longitude
     end
      if params[:search].present?
-        @vehicles = Vehicle.near(params[:search], 40, :order => :address)
+        @vehicles = Vehicle.near(params[:search], @miles, :order => :address)
         @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
           marker.lat vehicle.latitude
           marker.lng vehicle.longitude
