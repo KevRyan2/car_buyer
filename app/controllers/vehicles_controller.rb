@@ -1,10 +1,13 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user, only: [:new, :edit]
+  
   # GET /vehicles
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.all
+    # @vehicles = PgSearch.multisearch( params[:q] ).paginate( :page => params[:page] )
+
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
         marker.lat vehicle.latitude
         marker.lng vehicle.longitude
@@ -79,36 +82,39 @@ class VehiclesController < ApplicationController
     end
   end
 
-  def authenticate_user
-      redirect_to new_user_session_url unless user_signed_in?
-  end  
+    def authenticate_user
+        redirect_to new_user_session_url unless user_signed_in?
+    end  
 
-  private
+    # def sort_column
+    #   Vehicle.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    # end
 
-    def search_map(vehicles)
-        @vehicles = vehicles
-        @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
-        marker.lat vehicle.latitude
-        marker.lng vehicle.longitude
-        end
-    end
 
-    def correct_user(vehicle)
-      @vehicle = vehicle
-      if current_user_id ==@vehicle.user_id
-        return true
-      else
-        return false
+    # def sort_direction
+    #   %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    # end
+
+    private
+
+
+      def search_map(vehicles)
+          @vehicles = vehicles
+          @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
+          marker.lat vehicle.latitude
+          marker.lng vehicle.longitude
+          end
       end
-    end     
+     
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
-    end
+      # Use callbacks to share common setup or constraints between actions.
+      def set_vehicle
+        @vehicle = Vehicle.find(params[:id])
+      end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def vehicle_params
-      params.require(:vehicle).permit(:user_id, :category, :make, :model, :color, :year, :owner, :price, :address, :zip, :state, :latitude, :longitude)
-    end
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def vehicle_params
+        params.require(:vehicle).permit(:user_id, :category, :make, :model, :color, :year, :owner, :price, :address, :zip, :state, :latitude, :longitude)
+      end
 end
+
