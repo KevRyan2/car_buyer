@@ -7,7 +7,10 @@ class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
     @miles = params[:miles]
-    # @vehicles = PgSearch.multisearch( params[:q] ).paginate( :page => params[:page] )
+    @category = params[:category]
+    @make = params[:make]
+    #@category = params[:cat]
+    
 
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
         marker.lat vehicle.latitude
@@ -21,7 +24,12 @@ class VehiclesController < ApplicationController
         end
      else
         @vehicles = Vehicle.all
-     end   
+     end  
+
+      if params[:vehicle_params].present?
+        @vehicles = Vehicle.find(params[:vehicle_params], @category, @make )
+          fulltext params[:vehicle_params]
+     end    
   end
 
   # GET /vehicles/1

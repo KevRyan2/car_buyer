@@ -11,6 +11,11 @@
         <% end %>
         </ul>
         <%= form_tag vehicles_path, :method => :get do %>
+         <%= text_field_tag :vehicle_params, params[:vehicle_params] %>
+         <%= submit_tag "Search", :address => nil %>
+        <% end %> 
+
+        <%= form_tag vehicles_path, :method => :get do %>
           <p>
             <%= text_field_tag :search, params[:search] %>
             <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control" %>
