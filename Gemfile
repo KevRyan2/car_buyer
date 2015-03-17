@@ -36,6 +36,8 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 gem 'pg_search'
 
+gem 'bootstrap-sass'
+
 gem 'will_paginate'
 
 group :development, :test do

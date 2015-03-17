@@ -9,15 +9,19 @@ class VehiclesController < ApplicationController
     @miles = params[:miles]
     @category = params[:category]
     @make = params[:make]
-    #@category = params[:cat]
+    @model= params[:model]
+    @year = params[:year]
+    @color = params[:color]
+    @owner = params[:owner]
+    
     
 
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
         marker.lat vehicle.latitude
         marker.lng vehicle.longitude
     end
-     if params[:search].present?
-        @vehicles = Vehicle.near(params[:search], @miles, :order => :address)
+     if params[:search_map].present?
+        @vehicles = Vehicle.near(params[:search_map], @miles, :order => :address)
         @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
           marker.lat vehicle.latitude
           marker.lng vehicle.longitude
@@ -26,9 +30,10 @@ class VehiclesController < ApplicationController
         @vehicles = Vehicle.all
      end  
 
-      if params[:vehicle_params].present?
-        @vehicles = Vehicle.find(params[:vehicle_params], @category, @make )
-          fulltext params[:vehicle_params]
+      if params[:search]
+        @vehicles = Vehicle.search(params[:search]).order("Address DESC")
+      else 
+        @vehicles = Vehicle.all.order('Address DESC')  
      end    
   end
 
@@ -113,6 +118,8 @@ class VehiclesController < ApplicationController
 
       def search_map(vehicles)
           @vehicles = vehicles
+
+          @vehicles = Vehicle.near(params[:search_map], @miles, :order => :address)
           @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
           marker.lat vehicle.latitude
           marker.lng vehicle.longitude
