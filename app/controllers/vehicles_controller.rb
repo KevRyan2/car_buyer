@@ -31,9 +31,9 @@ class VehiclesController < ApplicationController
      end  
 
       if params[:search]
-        @vehicles = Vehicle.search(params[:search]).order("Address DESC")
+        @vehicles = Vehicle.search(params[:search])
       else 
-        @vehicles = Vehicle.all.order('Address DESC')  
+        @vehicles = Vehicle.all
      end    
   end
 
