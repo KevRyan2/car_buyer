@@ -11,7 +11,7 @@ class Vehicle < ActiveRecord::Base
 	end	
 
 	def self.search (query)
-		where("category like?", "%#{query}%" )
+		where("category like?", "%#{query}%")	
 	end
 
 end

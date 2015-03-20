@@ -117,8 +117,7 @@ class VehiclesController < ApplicationController
 
 
       def search_map(vehicles)
-          @vehicles = vehicles
-
+          
           @vehicles = Vehicle.near(params[:search_map], @miles, :order => :address)
           @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
           marker.lat vehicle.latitude
