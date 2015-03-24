@@ -11,7 +11,9 @@ class Vehicle < ActiveRecord::Base
 	end	
 
 	def self.search (query)
-				@vehicles = Vehicle.where("category LIKE ? OR make LIKE ? OR model LIKE ? OR color LIKE ? OR owner LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")	
+		@vehicles = Vehicle.where("category LIKE ? OR make LIKE ? OR model LIKE ? OR color LIKE ? OR owner LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")	
+
 	end
+
 
 end

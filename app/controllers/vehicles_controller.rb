@@ -32,6 +32,10 @@ class VehiclesController < ApplicationController
 
       if params[:search]
         @vehicles = Vehicle.search(params[:search])
+         	@hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
+          		marker.lat vehicle.latitude
+          		marker.lng vehicle.longitude
+      		end	
       else 
         @vehicles = Vehicle.all
      end    
