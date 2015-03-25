@@ -1,7 +1,7 @@
 class Vehicle < ActiveRecord::Base
 	# include PgSearch
 	# multisearchable against: [:category, :make, :model, :color, :year, :owner, :price, :address, :zip, :state]
-	
+
 	belongs_to :user
 	geocoded_by :full_address
 	after_validation :geocode
@@ -11,9 +11,8 @@ class Vehicle < ActiveRecord::Base
 	end	
 
 	def self.search (query)
-		@vehicles = Vehicle.where("category LIKE ? OR make LIKE ? OR model LIKE ? OR color LIKE ? OR owner LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")	
+		@vehicles = Vehicle.where("category iLIKE ? OR make iLIKE ? OR model iLIKE ? OR color iLIKE ? OR owner iLIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")	
 
 	end
-
 
 end

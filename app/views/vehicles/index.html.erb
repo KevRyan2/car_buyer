@@ -52,7 +52,7 @@
          <%= submit_tag "Search", :address => nil %>
         <% end %> 
 
-     <%= form_tag vehicles_path, :method => :get do %>
+     <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
           <p>
             <%= text_field_tag :search_map, params[:search_map] %>
             <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control" %>
@@ -74,10 +74,10 @@
 <!-- </p> -->
 
 <h1>Listing Vehicles</h1>
-
 <table>
   <thead>
     <tr>
+     
       <th><%= link_to "User", :sort => "User" %></th>
       <th><%= link_to "Category", :sort => "Category" %></th>
       <th><%= link_to "Make", :sort => "Make" %></th>

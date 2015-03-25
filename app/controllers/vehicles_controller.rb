@@ -4,8 +4,10 @@ class VehiclesController < ApplicationController
   
   # GET /vehicles
   # GET /vehicles.json
+	# helper_method :sort_column, :sort_direction 
+
   def index
-    @vehicles = Vehicle.all
+  	@vehicles = Vehicle.all
     @miles = params[:miles]
     @category = params[:category]
     @make = params[:make]
@@ -13,8 +15,7 @@ class VehiclesController < ApplicationController
     @year = params[:year]
     @color = params[:color]
     @owner = params[:owner]
-    
-    
+
 
     @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
         marker.lat vehicle.latitude
@@ -22,10 +23,10 @@ class VehiclesController < ApplicationController
     end
      if params[:search_map].present?
         @vehicles = Vehicle.near(params[:search_map], @miles, :order => :address)
-        @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
-          marker.lat vehicle.latitude
-          marker.lng vehicle.longitude
-        end
+        	@hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
+          		marker.lat vehicle.latitude
+          		marker.lng vehicle.longitude
+        	end
      else
         @vehicles = Vehicle.all
      end  
@@ -36,8 +37,8 @@ class VehiclesController < ApplicationController
           		marker.lat vehicle.latitude
           		marker.lng vehicle.longitude
       		end	
-      else 
-        @vehicles = Vehicle.all
+      # else 
+      #   @vehicles = Vehicle.all
      end    
   end
 
@@ -108,14 +109,7 @@ class VehiclesController < ApplicationController
         redirect_to new_user_session_url unless user_signed_in?
     end  
 
-    # def sort_column
-    #   Vehicle.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    # end
 
-
-    # def sort_direction
-    #   %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-    # end
 
     private
 
@@ -123,10 +117,10 @@ class VehiclesController < ApplicationController
       def search_map(vehicles)
           
           @vehicles = Vehicle.near(params[:search_map], @miles, :order => :address)
-          @hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
-          marker.lat vehicle.latitude
-          marker.lng vehicle.longitude
-          end
+          	@hash = Gmaps4rails.build_markers(@vehicles) do |vehicle, marker|
+          		marker.lat vehicle.latitude
+          		marker.lng vehicle.longitude
+          	end
       end
      
 
