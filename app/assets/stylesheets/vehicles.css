@@ -1,0 +1,123 @@
+/*// Place all the styles related to the Vehicles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+//colors
+$white: white;
+$color_shark_approx: #282828;
+$color_azure_approx: #336699;
+$black_40: rgba(0, 0, 0, 0.4);
+$color_mine_shaft_approx: #333333;
+$color_mountain_mist_approx: #999999;
+$color_jungle_mist_approx: #b5cfd2;
+$color_tana_approx: #dcddc0;
+$color_celeste_approx: #ccc;
+
+//fonts
+$font_0: Lato;
+$font_1: sans-serif;
+$font_2: Open Sans;
+$font_3: verdana;
+$font_4: arial;
+
+//urls
+$url_0: url(cell-blue.jpg);
+$url_1: url(cell-grey.jpg);
+
+/*nav*/
+.navbar-default {
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: transparent;
+    border-color: #336699;
+    //Instead of the line below you could use @includetransition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all .5s ease .25s;
+    .navbar-brand {
+        font-family: $font_0, $font_1;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $white;
+        #text-separator .container-fluid, #text-separator-timers .container-fluid, #text-separator-clients .container-fluid: ;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 3px 0 0;
+    font-size: 10px;
+    text-align: left;
+    list-style: none;
+    background-color: $white;
+    //Instead of the line below you could use @includebackground-clip($clip)
+    background-clip: padding-box;
+    border: 0;
+    //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 1px 1px 2px $black_40;
+    > li > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        line-height: 1.42857143;
+        color: $color_shark_approx;
+        white-space: nowrap;
+        font-family: $font_2, $font_1;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/*general*/
+.row {
+    z-index: 3;
+    position: relative;
+    margin-top: -20px;
+}
+
+/*map*/
+.map {
+    width: 500px;
+    height: 400px;
+    background-color: $color_celeste_approx;
+}
+
+/*table*/
+table.imagetable {
+    font-family: $font_3, $font_4, $font_1;
+    font-size: 11px;
+    color: $color_mine_shaft_approx;
+    border-width: 1px;
+    border-color: $color_mountain_mist_approx;
+    border-collapse: collapse;
+    th {
+        background: $color_jungle_mist_approx $url_0;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: $color_mountain_mist_approx;
+    }
+    td {
+        background: $color_tana_approx $url_1;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: $color_mountain_mist_approx;
+    }
+}
+
+
+
+
+
+
+
