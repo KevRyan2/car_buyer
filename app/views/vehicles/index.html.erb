@@ -1,5 +1,8 @@
 <nav class="navbar navbar-default">
+
   <div class="container-fluid">
+   <!-- Collapse navbar when window shrinks>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1"> -->
 
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -7,9 +10,11 @@
       </button>
 
     <ul class="nav navbar-nav">
+        <li> <a class="navbar-brand"> Car Seachers </li></a>
         <li><%= link_to 'Home', root_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-left">
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Begin <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -23,51 +28,44 @@
                </ul>
           </ul>
         </li>
-      </ul>
+        </ul>
 
-      <a class="navbar-brand"> Car Seachers </a>
-    </div><!--/navbar- header-->
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-collapse-1">
      
-    
+      </div><!--/navbar- header-->
+     
 
    
-     </div><!-- /.navbar-collapse -->
+    <!-- </div>/.navbar-collapse -->
 
    </div><!-- /.container-fluid -->
   </nav>
 </nav>
 
-<!-- <p> -->
-<%# render 'vehicles/search_form' %>  
-<!-- <ul class="vehicles"> -->
-  <%# @pg_search_vehicles.each do |pg_search_vehicle| %>
-    <%#render pg_search_vehicles.searchable %>  
-  <%# render @vehicles %>       
-<!-- </ul>    -->
-<%# will_paginate @vehicles %>
-<%# end %>
-<!-- </p> -->
-<div class="row">
-  <div class "col-lg-3">
-    <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Vehicles" %>
-        <%= submit_tag "Search", :address => nil %>
-    <% end %> 
 
-    <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
-      <p>
-        <%= text_field_tag :search_map, params[:search_map] %>
-        <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control" %>
-        <%= submit_tag "Search Near", :address => nil %>
-      </p>  
-    <% end %> 
-  </div>  
+<div class="row">
+    <div class = "container-search">
+      <div id="search-form1" class=" col-lg-2 col-sm-4">
+        <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Vehicles" %>
+            <%= submit_tag "Search", :address => nil %>
+        <% end %> 
+
+      <br />
+        <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
+          <p>
+            <%= text_field_tag :search_map, params[:search_map] %>
+            <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control col-lg-2" %>
+            <%= submit_tag "Search Near", :address => nil %>
+          </p>  
+        <% end %> 
+      </div>  
+    </div><!--container-search>-->
 </div>
 
-<h1>Listing Vehicles</h1>
+<div class="container-theader" >
+  <h1>
+            Listing Vehicles</h1>
+</div>
 <table class="imagetable">
   <thead>
     <tr>
@@ -119,9 +117,22 @@
 <br>
 
 <%= link_to 'New Vehicle', new_vehicle_path %>
+<br />
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class= "contianer-map" style="width: 1460px; position:center; margin-top: 60px">
+  <div id="map" 
+    style= "position: center;
+        margin-bottom: 50px;
+        padding: 10px;
+        margin-top: 80px;
+        margin-left: 217px;
+        width: 1000px;
+        height: 750px;
+        background-color: $color_celeste_approx;
+        border-style: groove;
+        border-width: 10px;
+        border-color: #666699;">
+  </div>
 </div>
 
 <div id="map-canvas">
