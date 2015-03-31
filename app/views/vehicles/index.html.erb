@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default">
 
   <div class="container-fluid">
@@ -10,17 +11,18 @@
       </button>
 
     <ul class="nav navbar-nav">
-        <li> <a class="navbar-brand"> Car Seachers </li></a>
+        <li> <a class="navbar-brand" > Car Seachers </a></li>
         <li><%= link_to 'Home', root_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-left">
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Begin <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
                <ul>
                   <% if user_signed_in? %>
                     <li><%= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete %></li>
+                    <li> <%= link_to 'New Vehicle', new_vehicle_path %></li>
                   <% else %>
                     <li><%= link_to 'Login', new_user_session_path  %></li>
                     <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
@@ -44,7 +46,7 @@
 
 <div class="row">
     <div class = "container-search">
-      <div id="search-form1" class=" col-lg-2 col-sm-4">
+      <div class="search-form1 col-lg-2 col-sm-4">
         <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Vehicles" %>
             <%= submit_tag "Search", :address => nil %>
@@ -54,7 +56,7 @@
         <%= form_tag vehicles_path, :method => :get, id: "search-form" do %>
           <p>
             <%= text_field_tag :search_map, params[:search_map] %>
-            <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control col-lg-2" %>
+            <%= select_tag :miles, options_for_select([["within 20 miles", "20"], ["within 40 miles", "40"]]), class: "form-control col-lg-1" %>
             <%= submit_tag "Search Near", :address => nil %>
           </p>  
         <% end %> 
@@ -63,8 +65,7 @@
 </div>
 
 <div class="container-theader" >
-  <h1>
-            Listing Vehicles</h1>
+  <h1>Listing Vehicles</h1>
 </div>
 <table class="imagetable">
   <thead>
@@ -74,16 +75,16 @@
       <th><%= link_to "Category", :sort => "Category" %></th>
       <th><%= link_to "Make", :sort => "Make" %></th>
       <th><%= link_to "Model", :sort => "Model" %></th>
-      <th><%= link_to "color", :sort => "Color" %></th>
+      <th><%= link_to "Color", :sort => "Color" %></th>
       <th><%= link_to "Year", :sort => "Year" %></th>
       <th><%= link_to "Owner", :sort => "Owner" %></th>
       <th><%= link_to "Price", :sort => "Price" %></th>
       <th><%= link_to "Address", :sort => "Address" %></th>
       <th><%= link_to "Zip", :sort => "Zip" %></th>
       <th><%= link_to "State", :sort => "State" %></th>      
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
+      <th class="hidden-col">Latitude</th>
+      <th class="hidden-col">Longitude</th>
+ 
     </tr>
   </thead>
 
@@ -101,8 +102,8 @@
         <td><%= vehicle.address %></td>
         <td><%= vehicle.zip %></td>
         <td><%= vehicle.state %></td>
-        <td><%= vehicle.latitude %></td>
-        <td><%= vehicle.longitude %></td>
+        <td class="hidden-col"><%= vehicle.latitude %></td>
+        <td class="hidden-col"><%= vehicle.longitude %></td>
         <% if user_signed_in? && current_user.id == vehicle.user_id %>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
@@ -116,7 +117,7 @@
 
 <br>
 
-<%= link_to 'New Vehicle', new_vehicle_path %>
+
 <br />
 
 <div class= "contianer-map" style="width: 1460px; position:center; margin-top: 60px">

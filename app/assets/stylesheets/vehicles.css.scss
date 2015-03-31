@@ -25,9 +25,13 @@ $font_4: arial;
 $url_0: url(cell-blue.jpg);
 $url_1: url(cell-grey.jpg);
 
+
+/*body*/
+
+
 /*nav*/
 .navbar-default {
-    padding: 30px;
+    padding: 6px;
     padding-left: 50px;
     padding-right: 50px;
     background-color: transparent;
@@ -37,11 +41,15 @@ $url_1: url(cell-grey.jpg);
     
 .navbar-brand {
         font-family: $font_0, $font_1;
-        font-weight: 800;
+        font-size: 38 !important;
+        font-weight: 900;
         position: center;
         text-transform: uppercase;
         font-style: italic;
         color: $white;
+        > a {
+        font-size: 38;
+        }
     }
 
 
@@ -54,7 +62,7 @@ $url_1: url(cell-grey.jpg);
     min-width: 160px;
     padding: 5px 0;
     margin: 3px 0 0;
-    font-size: 10px;
+    font-size: 20;
     text-align: left;
     list-style: none;
     background-color: $white;
@@ -71,7 +79,7 @@ $url_1: url(cell-grey.jpg);
         font-family: $font_2, $font_1;
         font-weight: 800;
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: 20;
         letter-spacing: 1px;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -95,7 +103,6 @@ $url_1: url(cell-grey.jpg);
     margin-left: 10px; 
     padding: 10px; 
     padding: 5px;
-
 }
 
 .contianer-map{ 
@@ -106,10 +113,11 @@ $url_1: url(cell-grey.jpg);
 
 .container-theader {
     float: center;
-    margin-left: 400px;
     font-style: bold;
-    font-size: 15px;
+    font-size: 20px;
     color: #336699;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 
@@ -138,23 +146,26 @@ $url_1: url(cell-grey.jpg);
 /*table*/
 table.imagetable {
     font-family: $font_3, $font_4, $font_1;
-    font-size: 11px;
+    font-size: 17px;
     color: $color_mine_shaft_approx;
     border-width: 1px;
     border-color: $color_mountain_mist_approx;
     border-collapse: collapse;
     text-align: center;
+    margin-top: 20px;
+    margin-left: 20%;
     th {
         background: $color_jungle_mist_approx $url_0;
-        border-width: 1px;
+        border-width: 3px;
         padding: 8px;
         border-style: solid;
-        border-color: $color_mountain_mist_approx;
+        border-color: #336699;
         border-spacing: 10px;
+        text-align: center;
     }
     td {
         background: $color_tana_approx $url_1;
-        border-width: 1px;
+        border-width: 3px;
         padding: 8px;
         border-style: solid;
         border-color: $color_mountain_mist_approx;
@@ -162,12 +173,23 @@ table.imagetable {
     }
 }
 
+.hidden-col{
+    display: none;
+}
+
+.h1{
+    margin-left: 150px;
+}
 /*search form*/
 .search-form1{
-    position: left ;
-    padding-left: 20px;
+    position: center;
+    margin-left: 20px;
+    padding: 5px;
+    padding-left: 40px;
+    padding-top: 10px;
     padding-bottom: 4px;
-    border-width: 2px;
+    background-color: #336699;
+    border-width: 4px;
     border-style: solid;
     border-color: $color_mountain_mist_approx;
 }
