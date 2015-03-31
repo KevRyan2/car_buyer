@@ -41,14 +41,14 @@ $url_1: url(cell-grey.jpg);
     
 .navbar-brand {
         font-family: $font_0, $font_1;
-        font-size: 38 !important;
+        font-size: 38px !important;
         font-weight: 900;
         position: center;
         text-transform: uppercase;
         font-style: italic;
         color: $white;
         > a {
-        font-size: 38;
+        font-size: 38px !important;
         }
     }
 
