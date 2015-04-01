@@ -136,8 +136,9 @@ $url_0: url(http://i.imgur.com/3hSkhay.png);
     height: 500px;
     background-color: $color_celeste_approx;
     border-style: groove;
-    border-width: 10px;
-    border-color: $color_shark_approx;
+    border-width: 20px;
+    border-color: #a2a8a8;
+    border-radius: 25px;
 
 }
 
@@ -148,6 +149,15 @@ $url_0: url(http://i.imgur.com/3hSkhay.png);
     background-color: $color_mine_shaft_approx !important;
     width: 100% !important;
 }
+
+.map-header{
+    font-size: 25px;
+    font-color:color_edward_approx;
+    text-align: center;
+    padding: 20px;    
+}
+
+
 
 /*table*/
 
