@@ -14,6 +14,10 @@ $color_jungle_mist_approx: #b5cfd2;
 $color_tana_approx: #dcddc0;
 $color_celeste_approx: #ccc;
 $color_edward_approx: #a2a8a8;
+$black_5: rgba(0,0,0,.05);
+$color_wild_sand_approx: #f6f3f7;
+$black_10: rgba(0,0,0,.1);
+$color_tiara_approx: #c8cece;
 
 //fonts
 $font_0: Lato;
@@ -25,6 +29,7 @@ $font_4: arial;
 //urls
 $url_0: url(cell-blue.jpg);
 $url_1: url(cell-grey.jpg);
+$url_0: url(http://i.imgur.com/3hSkhay.png);
 
 
 /*body*/
@@ -123,17 +128,16 @@ $url_1: url(cell-grey.jpg);
 
 /*map*/
 .map {
-    position: center;
+    margin-left: 310px;
     margin-bottom: 50px;
     padding: 10px;
     margin-top: 80px;
-    margin-left: 303px;
-    width: 1000px;
+    width: 1200px;
     height: 500px;
     background-color: $color_celeste_approx;
     border-style: groove;
     border-width: 10px;
-    border-color: #666699;
+    border-color: $color_shark_approx;
 
 }
 
@@ -146,36 +150,52 @@ $url_1: url(cell-grey.jpg);
 }
 
 /*table*/
-table.imagetable {
-    font-family: $font_3, $font_4, $font_1;
-    font-size: 17px;
-    color: $color_mine_shaft_approx;
-    border-width: 1px;
-    border-color: $color_mountain_mist_approx;
-    border-collapse: collapse;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: 20%;
-    th {
-        background: $color_jungle_mist_approx $url_0;
-        border-width: 3px;
-        padding: 8px;
-        border-style: solid;
-        border-color: #336699;
-        border-spacing: 10px;
-        text-align: center;
-    }
-    td {
-        background: $color_tana_approx $url_1;
-        border-width: 3px;
-        padding: 8px;
-        border-style: solid;
-        border-color: $color_mountain_mist_approx;
-        border-spacing: 10px;
+
+.flatTable {
+    width: 80%;
+    min-width: 500px;
+    font-weight: bold;
+    color: $color_edward_approx;
+    font-size: 21px !important;
+    margin-left: 171px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-style: solid;
+    border-color: $color_mine_shaft_approx !important;
+    border-width: 4px;
+    border-radius: 25px;
+
+  tr {
+    height: 50px;
+    background: $color_azure_approx ;
+    font-color: $color_edward_approx !important;
+    border-color: $color_mine_shaft_approx ;
+    border-style: solid;}
+  td {
+    box-sizing: border-box;
+    padding-left: 30px;
+    > a{
+        color: $color_edward_approx !important;
+        }
     }
 }
+.headingTr {
+    height: 30px;
+    font-color: $color_edward_approx !important;
+    font-size: 25px !important;
+    border: 0 solid;
+}
 
-
+.titleTr {
+    height: 70px;
+    color: $color_wild_sand_approx;
+    background: $color_waikawa_gray_approx;
+    font-size: 30px; 
+    border: 0 solid;
+}
+.plusTd {
+    background: $url_0 center center no-repeat, $black_10;
+}
 .container-theader {
     float: center;
     font-style: bold !important;
@@ -187,7 +207,7 @@ table.imagetable {
 
 .container-table {
     background-color: $color_edward_approx;
-    width: 100% !important;
+    width: 100% !important; 
 }
 
 
@@ -198,6 +218,30 @@ table.imagetable {
 .h1{
     margin-left: 150px;
 }
+
+
+.sForm {
+    position: absolute;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: $color_edward_approx;
+    overflow: hidden;
+    transition: width 1s, right .3s;
+    padding: 0;
+    box-sizing: border-box;
+}
+.close {
+    float: right;
+    height: 70px;
+    width: 80px;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+
+
+
 /*search form*/
 
 

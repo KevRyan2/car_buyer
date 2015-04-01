@@ -23,7 +23,6 @@
                <ul>
                   <% if user_signed_in? %>
                     <li><%= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete %></li>
-                    <li> <%= link_to 'New Vehicle', new_vehicle_path %></li>
                   <% else %>
                     <li><%= link_to 'Login', new_user_session_path  %></li>
                     <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
@@ -64,31 +63,33 @@
 </div>
 
 <div class="container container-table" >
-  <h1 class="container-theader">Listing Vehicles</h1>
-<table class="imagetable">
-  <thead>
+  
+  <table class="flatTable">
     <tr>
+      <td style="font-size: 40px; font-style:bold;">Car Listings</td>
+      <td colspan="10" style="text-align:right; text-style:emb; padding-right:20px; font-color: #a2a8a8"> <%= link_to 'New Vehicle', new_vehicle_path %></td>
+      
+    </tr>  
+    <tr class="headingTr">
      
-      <th><%= link_to "User", :sort => "User" %></th>
-      <th><%= link_to "Category", :sort => "Category" %></th>
-      <th><%= link_to "Make", :sort => "Make" %></th>
-      <th><%= link_to "Model", :sort => "Model" %></th>
-      <th><%= link_to "Color", :sort => "Color" %></th>
-      <th><%= link_to "Year", :sort => "Year" %></th>
-      <th><%= link_to "Owner", :sort => "Owner" %></th>
-      <th><%= link_to "Price", :sort => "Price" %></th>
-      <th><%= link_to "Address", :sort => "Address" %></th>
-      <th><%= link_to "Zip", :sort => "Zip" %></th>
-      <th><%= link_to "State", :sort => "State" %></th>      
-      <th class="hidden-col">Latitude</th>
-      <th class="hidden-col">Longitude</th>
+      <td><%= link_to "User", :sort => "User" %></td>
+      <td><%= link_to "Category", :sort => "Category" %></td>
+      <td><%= link_to "Make", :sort => "Make" %></td>
+      <td><%= link_to "Model", :sort => "Model" %></td>
+      <td><%= link_to "Color", :sort => "Color" %></td>
+      <td><%= link_to "Year", :sort => "Year" %></td>
+      <td><%= link_to "Owner", :sort => "Owner" %></td>
+      <td><%= link_to "Price", :sort => "Price" %></td>
+      <td><%= link_to "Address", :sort => "Address" %></td>
+      <td><%= link_to "Zip", :sort => "Zip" %></td>
+      <td><%= link_to "State", :sort => "State" %></td>   
+      <td class="hidden-col">Latitude</td>
+      <td class="hidden-col">Longitude</td>
  
     </tr>
-  </thead>
 
-  <tbody>
+  <tr>
     <% @vehicles.each do |vehicle| %>
-      <tr>
         <td><%= vehicle.user_id %></td>
         <td><%= vehicle.category %></td>
         <td><%= vehicle.make %></td>
@@ -107,30 +108,15 @@
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+   </tr>
+  <% end %>
+  
+ </table>
 </div>
 
-<br>
-
-
-<br />
-
-<div class= "container container-map" style="width: 1460px; position:center; margin-top: 60px">
-  <div id="map" 
-    style= "position: center;
-        margin-bottom: 50px;
-        padding: 10px;
-        margin-top: 80px;
-        margin-left: 217px;
-        width: 1000px;
-        height: 750px;
-        background-color: $color_celeste_approx;
-        border-style: groove;
-        border-width: 10px;
-        border-color: #666699;">
+<div class= "container container-map">
+  <h1 class="map-header">Vehicle Locator</h1>
+  <div id="map" class="map">
   </div>
 </div>
 
