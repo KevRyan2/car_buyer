@@ -1,3 +1,19 @@
+<div style=" 
+    width: 20%;
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 5px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: #336699;
+    border-width: 4px;
+    border-style: solid;
+    font-color: $color_waikawa_gray_approx;
+    border-color: $color_mountain_mist_approx;
+    border-radius: 25px;">
+
 <%= form_for(@vehicle) do |f| %>
   <% if @vehicle.errors.any? %>
     <div id="error_explanation">
@@ -11,55 +27,57 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <h1>New Vehicle</h1>
+
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
   <%= f.hidden_field :user_id %> <br>
   <%= f.hidden_field :user_id, :value => @current_user.id%><br>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :make %><br>
     <%= f.text_field :make %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :model %><br>
     <%= f.text_field :model %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :year %><br>
     <%= f.number_field :year %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :owner %><br>
     <%= f.text_field :owner %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :zip %><br>
     <%= f.number_field :zip %>
   </div>
-  <div class="field">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black">
     <%= f.label :state %><br>
     <%= f.text_field :state %>
   </div>
-  <div class="field" type="hidden">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black" type="hidden">
     <%= f.hidden_field :latitude %><br>
     <%= f.hidden_field :latitude %>
   </div>
-  <div class="field" type="hidden">
+  <div class="field" style="font-size: 20px; padding: 5px; border-radius:25px; border-color: $black" type="hidden">
     <%= f.hidden_field :longitude %><br>
     <%= f.hidden_field :longitude %>
   </div>
@@ -67,3 +85,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

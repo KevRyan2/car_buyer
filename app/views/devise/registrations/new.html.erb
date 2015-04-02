@@ -1,14 +1,30 @@
-<h2>Sign up</h2>
+<div style=" 
+    width: 40%;
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 5px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: #336699;
+    border-width: 4px;
+    border-style: solid;
+    font-color: $color_waikawa_gray_approx;
+    border-color: $color_mountain_mist_approx;
+    border-radius: 25px;">
+
+<p style="font-color: $color_edward_approx !important; font-size: 40px; font-style:bold !important; ">Sign up</p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+  <div class="field" style="font-size: 25px; font-style:bold;">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size: 25px; font-style:bold;">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -16,14 +32,19 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="field" style="font-size: 25px; font-style:bold;">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" style="padding: 8px">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <div style="font-color: $color_waikawa_gray_approx !important;">
+    <%= render "devise/shared/links" %>
+    <%= link_to "Back", :back %>
+    <%= link_to 'Home', root_path %>
+  </div>
+</div>
