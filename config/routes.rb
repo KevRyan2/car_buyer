@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :string_scorers
+
 
   resources :vehicles
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,4 +57,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+    namespace :api, defaults: {format: :json} do
+      resources :vehicles, :users
+    end  
+
+
 end
