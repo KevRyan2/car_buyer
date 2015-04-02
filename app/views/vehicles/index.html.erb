@@ -62,56 +62,57 @@
       </div> 
 </div>
 
-<div class="container container-table" >
-  
-  <table class="flatTable">
-    <tr>
-      <td style="font-size: 40px; font-style:bold;">Car Listings</td>
-      <td colspan="10" style="text-align:right; text-style:emb; padding-right:20px; font-color: #a2a8a8"> <%= link_to 'New Vehicle', new_vehicle_path %></td>
-      
-    </tr>  
-    <tr class="headingTr">
-     
-      <td><%= link_to "User", :sort => "User" %></td>
-      <td><%= link_to "Category", :sort => "Category" %></td>
-      <td><%= link_to "Make", :sort => "Make" %></td>
-      <td><%= link_to "Model", :sort => "Model" %></td>
-      <td><%= link_to "Color", :sort => "Color" %></td>
-      <td><%= link_to "Year", :sort => "Year" %></td>
-      <td><%= link_to "Owner", :sort => "Owner" %></td>
-      <td><%= link_to "Price", :sort => "Price" %></td>
-      <td><%= link_to "Address", :sort => "Address" %></td>
-      <td><%= link_to "Zip", :sort => "Zip" %></td>
-      <td><%= link_to "State", :sort => "State" %></td>   
-      <td class="hidden-col">Latitude</td>
-      <td class="hidden-col">Longitude</td>
- 
-    </tr>
 
-  <tr>
-    <% @vehicles.each do |vehicle| %>
-        <td><%= vehicle.user_id %></td>
-        <td><%= vehicle.category %></td>
-        <td><%= vehicle.make %></td>
-        <td><%= vehicle.model %></td>
-        <td><%= vehicle.color %></td>
-        <td><%= vehicle.year %></td>
-        <td><%= vehicle.owner %></td>
-        <td><%= vehicle.price %></td>
-        <td><%= vehicle.address %></td>
-        <td><%= vehicle.zip %></td>
-        <td><%= vehicle.state %></td>
-        <td class="hidden-col"><%= vehicle.latitude %></td>
-        <td class="hidden-col"><%= vehicle.longitude %></td>
+  <div class="container container-table">
+    <div class= "table-title">Car Listings</div>
+
+    <div class="table">
+      
+    <div class="row header blue">
+     
+      <div class="cell"><%= link_to "User", :sort => "User" %></div>
+      <div class="cell"><%= link_to "Category", :sort => "Category" %></div>
+      <div class="cell"><%= link_to "Make", :sort => "Make" %></div>
+      <div class="cell"><%= link_to "Model", :sort => "Model" %></div>
+      <div class="cell"><%= link_to "Color", :sort => "Color" %></div>
+      <div class="cell"><%= link_to "Year", :sort => "Year" %></div>
+      <div class="cell"><%= link_to "Owner", :sort => "Owner" %></div>
+      <div class="cell"><%= link_to "Price", :sort => "Price" %></div>
+      <div class="cell"><%= link_to "Address", :sort => "Address" %></div>
+      <div class="cell"><%= link_to "Zip", :sort => "Zip" %></div>
+      <div class="cell"><%= link_to "State", :sort => "State" %></div>  
+      <div class="hidden-col">Latitude</div>
+      <div class="hidden-col">Longitude</div>
+     
+    </div>
+
+<% @vehicles.each do |vehicle| %>
+   <div class="row">
+    
+        <div class="cell"><%= vehicle.user_id %></div>
+        <div class="cell"><%= vehicle.category %></div>
+        <div class="cell"><%= vehicle.make %></div>
+        <div class="cell"><%= vehicle.model %></div>
+        <div class="cell"><%= vehicle.color %></div>
+        <div class="cell"><%= vehicle.year %></div>
+        <div class="cell"><%= vehicle.owner %></div>
+        <div class="cell"><%= vehicle.price %></div>
+        <div class="cell"><%= vehicle.address %></div>
+        <div class="cell"><%= vehicle.zip %></div>
+        <div class="cell"><%= vehicle.state %></div>
+        <div class="cell hidden-col"><%= vehicle.latitude %></div>
+        <div class="cell hidden-col"><%= vehicle.longitude %></div>    
         <% if user_signed_in? && current_user.id == vehicle.user_id %>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="cell"><%= link_to 'Show', vehicle %></div>
+        <div class="cell"><%= link_to 'Edit', edit_vehicle_path(vehicle) %></div>
+        <div class="cell"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         <% end %>
-   </tr>
+   
+    </div>
   <% end %>
-  
- </table>
+ </div>
+  <div><%= link_to 'New Vehicle', new_vehicle_path, class: 'vehicle-button' %></div>
+
 </div>
 
 <div class= "container container-map">
