@@ -2,8 +2,8 @@ module Api
   class BaseController < ApplicationController
       # include ActionController::Serialization
       
-  #   protect_from_forgery with: :null_session
-  #   before_action :set_resource, only: [:destroy, :show, :update]
+    protect_from_forgery with: :null_session
+    before_action :set_resource, only: [:destroy, :show, :update]
 
   #   respond_to :json
 

@@ -14,6 +14,7 @@ module Api
     end
 
     def destroy
+      @vehicle = Vehicle.find(params[:id])
       @vehicle.destroy
 
       head :no_content
@@ -42,12 +43,16 @@ module Api
 
     private
 
+      def set_resource
+        @vehicle = Vehicle.find(params[:id])
+      end
+
       def set_vehicle
           @vehicle = Vehicle.find(params[:id])
       end    
 
       def vehicle_params
-        params.require(:vehicle).permit(:id, :category, :make, :model, :color, :year, :owner, :price, :address, :zip, :state, :latitude, :longitude)
+        params.permit(:id, :category, :make, :model, :color, :year, :owner, :price, :address, :zip, :state, :latitude, :longitude)
       end
 
       def query_params

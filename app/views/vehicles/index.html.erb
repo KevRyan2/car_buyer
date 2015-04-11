@@ -102,7 +102,7 @@
         <div class="cell"><%= vehicle.state %></div>
         <div class="cell hidden-col"><%= vehicle.latitude %></div>
         <div class="cell hidden-col"><%= vehicle.longitude %></div>    
-        <% if user_signed_in? && current_user.id == vehicle.user_id %>
+        <%# if user_signed_in? && current_user.id == vehicle.user_id %>
         <div class="cell"><%= link_to 'Show', vehicle %></div>
         <div class="cell"><%= link_to 'Edit', edit_vehicle_path(vehicle) %></div>
         <div class="cell"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></div>

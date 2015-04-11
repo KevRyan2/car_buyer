@@ -1,5 +1,5 @@
 json.vehicle do 
-  json.id    		  @vehicle.id
+  json.id         @vehicle.id
   json.category 	@vehicle.category
   json.make			  @vehicle.make
   json.model		  @vehicle.model
